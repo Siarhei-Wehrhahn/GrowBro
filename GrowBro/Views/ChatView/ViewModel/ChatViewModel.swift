@@ -19,14 +19,14 @@ class ChatViewModel: ObservableObject {
     func sendMessage() {
         let userMessage = ChatMessage(content: userInput, isUser: true)
         chatMessages.append(userMessage)
+        userInput = ""
         isLoading = true
         
         Task {
             do {
-                let result = try await repo.sendRequest(prompt: userInput)
+                let result = try await repo.sendRequest(prompt: userMessage.content)
                 let growBroMessage = ChatMessage(content: result, isUser: false)
                 chatMessages.append(growBroMessage)
-                userInput = ""
             } catch {
                 print("ChatViewModel: \(error)")
             }

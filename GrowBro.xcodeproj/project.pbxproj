@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		862FEB722C46E5B5006061C2 /* Datenschutzrichtlinie.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 862FEB712C46E5B5006061C2 /* Datenschutzrichtlinie.rtf */; };
+		862FEB742C46E5F1006061C2 /* Datenlizenz.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 862FEB732C46E5F1006061C2 /* Datenlizenz.rtf */; };
 		864B51A32C46628600B8252C /* GrowBroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B51A22C46628600B8252C /* GrowBroApp.swift */; };
 		864B51A72C46628700B8252C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864B51A62C46628700B8252C /* Assets.xcassets */; };
 		864B51AA2C46628700B8252C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864B51A92C46628700B8252C /* Preview Assets.xcassets */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		862FEB712C46E5B5006061C2 /* Datenschutzrichtlinie.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Datenschutzrichtlinie.rtf; sourceTree = "<group>"; };
+		862FEB732C46E5F1006061C2 /* Datenlizenz.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Datenlizenz.rtf; sourceTree = "<group>"; };
 		864B519F2C46628600B8252C /* GrowBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrowBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864B51A22C46628600B8252C /* GrowBroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowBroApp.swift; sourceTree = "<group>"; };
 		864B51A62C46628700B8252C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				864B51A62C46628700B8252C /* Assets.xcassets */,
 				864B51DA2C466F9B00B8252C /* GoogleService-Info.plist */,
 				864B51A82C46628700B8252C /* Preview Content */,
+				862FEB712C46E5B5006061C2 /* Datenschutzrichtlinie.rtf */,
+				862FEB732C46E5F1006061C2 /* Datenlizenz.rtf */,
 			);
 			path = GrowBro;
 			sourceTree = "<group>";
@@ -392,7 +398,9 @@
 			files = (
 				864B51AA2C46628700B8252C /* Preview Assets.xcassets in Resources */,
 				864B51A72C46628700B8252C /* Assets.xcassets in Resources */,
+				862FEB742C46E5F1006061C2 /* Datenlizenz.rtf in Resources */,
 				864B51DB2C466F9B00B8252C /* GoogleService-Info.plist in Resources */,
+				862FEB722C46E5B5006061C2 /* Datenschutzrichtlinie.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,25 +602,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GrowBro/GrowBro.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"GrowBro/Preview Content\"";
 				DEVELOPMENT_TEAM = LFNM38DQ8M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Grow Bro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.InventisGroup.GrowBro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -624,25 +642,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GrowBro/GrowBro.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"GrowBro/Preview Content\"";
 				DEVELOPMENT_TEAM = LFNM38DQ8M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Grow Bro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.InventisGroup.GrowBro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
