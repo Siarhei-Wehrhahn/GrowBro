@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct RegisterOrLoginView: View {
+    @EnvironmentObject private var viewModel: AuthenticationViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if viewModel.showRegister {
+            AuthenticationView()
+                .environmentObject(viewModel)
+        } else {
+            LoginView()
+                .environmentObject(viewModel)
+        }
     }
 }
+
 
 #Preview {
     RegisterOrLoginView()

@@ -9,41 +9,29 @@ import Foundation
 import SwiftUI
 
 class ChatViewModel: ObservableObject {
-    @Published var messages: [String] = []
-    @Published var userMessages: [String] = []
+    @Published var chatMessages: [ChatMessage] = []
     @Published var userInput = ""
     @Published var showAlert = false
+    @Published var isLoading = false
     let repo = ChatRepository()
     
     @MainActor
     func sendMessage() {
+        let userMessage = ChatMessage(content: userInput, isUser: true)
+        chatMessages.append(userMessage)
+        isLoading = true
+        
         Task {
             do {
                 let result = try await repo.sendRequest(prompt: userInput)
-                messages.append(result)
-                userMessages.append(userInput)
+                let growBroMessage = ChatMessage(content: result, isUser: false)
+                chatMessages.append(growBroMessage)
                 userInput = ""
-            } catch let error as ChatRepository.RequestError {
-                handleRequestError(error)
             } catch {
-                print("ChatViewModel: Unbekannter Fehler: \(error)")
+                print("ChatViewModel: \(error)")
             }
+            isLoading = false
         }
-    }
-    
-    private func handleRequestError(_ error: ChatRepository.RequestError) {
-        switch error {
-        case .encodingError:
-            print("Fehler beim Kodieren der Anfrage.")
-        case .decodingError:
-            print("Fehler beim Dekodieren der Antwort.")
-        case .networkError(let netError):
-            print("Netzwerkfehler: \(netError)")
-        case .invalidResponse:
-            print("Ungültige Antwort vom Server.")
-        default:
-            print("Unbekannter Fehler: \(error)")
-        }
-        showAlert = true
     }
 }
+

@@ -13,7 +13,7 @@ struct ChatView: View {
     var body: some View {
         ZStack {
             VStack {
-                if viewModel.messages.isEmpty {
+                if viewModel.chatMessages.isEmpty {
                     Text("Hey, ich bin dein Grow Bro und stehe dir jederzeit zur Seite. Wenn du Fragen zu deinem Grow hast, zöger nicht, mich zu fragen!")
                         .offset(CGSize(width: 0.0, height: 300.0))
                         .bold()
@@ -24,13 +24,13 @@ struct ChatView: View {
                 VStack(spacing: 0) {
                     ScrollView {
                         LazyVStack(spacing: 10) {
-                            ForEach(viewModel.messages.indices, id: \.self) { index in
-                                if index < viewModel.userMessages.count {
-                                    ChatBubble(content: viewModel.messages[index], isUser: false)
-                                    ChatBubble(content: viewModel.userMessages[index], isUser: true)
-                                } else {
-                                    ChatBubble(content: viewModel.messages[index], isUser: false)
-                                }
+                            ForEach(viewModel.chatMessages) { message in
+                                ChatBubble(content: message.content, isUser: message.isUser)
+                            }
+                            
+                            if viewModel.isLoading {
+                                ChatBubble(content: nil, isUser: false, isLoading: true)
+                                    .padding(.top, 10)
                             }
                         }
                         .padding(.top, 10)
@@ -85,38 +85,6 @@ struct ChatView: View {
                 dismissButton: .default(Text("OK!"))
             )
         }
-    }
-}
-
-struct ChatBubble: View {
-    var content: String
-    var isUser: Bool
-    
-    var body: some View {
-        Group {
-            if isUser {
-                HStack {
-                    Spacer()
-                    Text("Du \n\(content)")
-                        .padding(10)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding(.trailing, 10)
-                }
-            } else {
-                HStack {
-                    Text("Grow Bro \n\(content)")
-                        .padding(10)
-                        .background(Color.gray.opacity(0.2))
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
-                        .padding(.leading, 10)
-                    Spacer()
-                }
-            }
-        }
-        .id(UUID())
     }
 }
 

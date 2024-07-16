@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+enum Page {
+    case splash
+    case home
+}
+
+class ViewRouter: ObservableObject {
+    @Published var currentPage: Page = .splash
+}
